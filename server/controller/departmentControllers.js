@@ -6,7 +6,7 @@ const getAllDepartments = async (req, res) => {
         }
         return res. json(departments);
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -20,7 +20,7 @@ const getDepartment = async (req, res) => {
         }
         return res.json(department);
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -34,7 +34,7 @@ const insertDepartment = async (req, res) => {
         });
         return res.json(department);
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -55,7 +55,7 @@ const updateDepartment = async (req, res) => {
           }
         return res.json(updatedData);
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -66,7 +66,7 @@ const deleteDepartment = async (req, res) => {
         });
         return res.send({ message: 'delete ' + department + ' row' });
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 

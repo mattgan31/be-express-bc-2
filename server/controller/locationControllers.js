@@ -6,7 +6,7 @@ const getAllLocations = async (req, res) => {
         }
         return res.json(locations);
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -20,7 +20,7 @@ const getLocation = async (req, res) => {
         }
         return res.json(location);
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -36,7 +36,7 @@ const insertLocation = async (req, res) => {
         });
         return res.json(location);
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -59,7 +59,7 @@ const updateLocation = async (req, res) => {
           }
         return res.json(updatedData);
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -70,7 +70,7 @@ const deleteLocation = async (req, res) => {
         });
         return res.send({message: 'delete ' + location + ' row'});
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 

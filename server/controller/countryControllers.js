@@ -6,7 +6,7 @@ const getAllCountries = async (req, res) => {
         }
         return res. json(countries);
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -20,7 +20,7 @@ const getCountry = async (req, res) => {
         }
         return res.json(country);
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -33,7 +33,7 @@ const insertCountry = async (req, res) => {
         });
         return res.json(country);
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -53,7 +53,7 @@ const updateCountry = async (req, res) => {
           }
         return res.json(updatedData);
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -64,7 +64,7 @@ const deleteCountry = async (req, res) => {
         });
         return res.send({ message: 'delete ' + country + ' row' });
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 

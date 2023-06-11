@@ -6,7 +6,7 @@ const getAllJobHistories = async (req, res) => {
         }
         return res. json(jobHistories);
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -20,7 +20,7 @@ const getJobHistory = async (req, res) => {
         }
         return res.json(jobHistory);
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -35,7 +35,7 @@ const insertJobHistory = async (req, res) => {
         });
         return res.json(jobHistory);
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -57,7 +57,7 @@ const updateJobHistory = async (req, res) => {
           }
         return res.json(updatedData);
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -68,7 +68,7 @@ const deleteJobHistory = async (req, res) => {
         });
         return res.send({message: 'delete ' + jobHistory + ' row'});
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 

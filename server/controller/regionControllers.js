@@ -1,3 +1,5 @@
+import { sequelize } from "../models/init-models.js";
+
 const getAllRegions = async (req, res) => {
     try {
         const regions = await req.context.models.regions.findAll();
@@ -6,7 +8,7 @@ const getAllRegions = async (req, res) => {
         }
         return res. json(regions);
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -20,7 +22,7 @@ const getRegion = async (req, res) => {
         }
         return res.json(region);
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -31,7 +33,7 @@ const insertRegion = async (req, res) => {
         });
         return res.json(region);
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -50,7 +52,7 @@ const updateRegion = async (req, res) => {
           }
         return res.json(updatedData);
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -61,7 +63,7 @@ const deleteRegion = async (req, res) => {
         });
         return res.send({ message: 'delete ' + region + ' row' });
     } catch (error) {
-        return res.json({error: error});
+        return res.send({ error });
     }
 }
 
@@ -70,10 +72,10 @@ const querySQL = async (req, res)=>{
         await sequelize.query('select * from regions where region_id = :id',
             { replacements: { id: req.params.id }, type: sequelize.QueryTypes.SELECT }
         ).then(result => {
-            return res.send(result)
+            return res.send({result});
         });
     } catch (error) {
-        return res.send(error)
+        return res.send({ error });
     }
 }
 
@@ -82,5 +84,6 @@ export default {
     getRegion,
     insertRegion,
     updateRegion,
-    deleteRegion
+    deleteRegion,
+    querySQL
 }
